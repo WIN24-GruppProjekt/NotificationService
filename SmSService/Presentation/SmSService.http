@@ -1,0 +1,15 @@
+@SmSService_HostAddress = http://localhost:5131
+
+### Send SMS Confirmation
+POST {{SmSService_HostAddress}}/api/BookingSms/confirmation
+Content-Type: application/json
+
+{
+  "phoneNumber": "+46793538697",
+  "firstName": "John",
+  "bookingId": "BK123456",
+  "eventLocation": "Core Gym Downtown",
+  "eventTime": "2025-09-27 10:00 AM",
+  "eventName": "Personal Training Session",
+  "trainerName": "Mike Johnson"
+}

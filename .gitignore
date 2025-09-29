@@ -465,3 +465,7 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Local configuration files with sensitive data
+appsettings.local.json
+**/appsettings.local.json
