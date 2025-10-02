@@ -46,4 +46,51 @@ Before running, you need to set up environment variables (or use a secrets store
 
 ## SMSService
 
-about sms service....
+Minimal ASP.NET Core API that sends booking confirmation SMS via Infobip.
+
+### Requirements
+
+- .NET 9
+- Infobip account with API access
+- Valid sender phone number in Infobip
+
+Before running, you need to set up environment variables (or use a secrets store). At minimum:
+
+| Name              | Description                      |
+| ----------------- | -------------------------------- |
+| `InfobipApiKey`   | API key for your Infobip account |
+| `FromPhoneNumber` | Verified sender phone number     |
+
+### API
+
+- Method: POST
+- Route: /api/BookingSms/confirmation
+- Body:
+- ```json
+  {
+    "PhoneNumber": "+1234567890",
+    "FirstName": "Alex",
+    "BookingId": "ABC123",
+    "EventLocation": "Main Hall",
+    "EventTime": "2025-10-01 10:00",
+    "EventName": "Yoga Basics",
+    "TrainerName": "Jamie"
+  }
+  ```
+
+### Notes
+
+- Do not commit secrets; keep them in environment variables or appsettings.local.json.
+- Phone numbers should include country code (with or without + prefix).
+
+### Further development
+
+- Message templates
+- Retry / error handling improvements
+- Unit tests
+- Support for other SMS providers
+
+### Links
+
+- [Infobip SMS API](https://www.infobip.com/docs/api/channels/sms)
+
